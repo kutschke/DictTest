@@ -10,10 +10,10 @@ The problem is that the header lines in the rootmap files are built differently 
 We would like the rootcling build to create rootmap files with the header lines in the style written
 by the genreflex build.
 
-For historical reasons building dictionaries using rootcling is done using a cmake based build system
+For historical reasons, building dictionaries using rootcling is done using a cmake based build system
 while building dictionaries using genreflex is done using an scons based build system.   The source
 code is in a GitHub repository; it contains the files to control both the cmake builds and the scons
-builds; each build systems ignore the control files for the other build system.
+builds; each build system ignores the control files for the other build system.
 
 ## Using rootcling via cmake
 
@@ -29,7 +29,7 @@ cmake ../DictTest  -DCMAKE_BUILD_TYPE=Release
 make -j 1 VERBOSE=1 >& build.log
 ```
 
-Now look at the rootmap file to find the result:
+Now look at the rootmap file to see this side of the issue:
 ```
 grep header lib/libGeneral.rootmap
 ```
@@ -46,7 +46,7 @@ muse setup -1 -q p020
 muse build -j 1 >& build.log
 ```
 
-Now look at the rootmap file to find the result:
+Now look at the rootmap file to see the other side of the issue:
 ```
 grep header build/sl7-prof-e20-p020/DictTest/lib/libdicttestGeneral_dict.rootmap
 ```
