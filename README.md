@@ -6,6 +6,10 @@ The examples are designed to be run on a machine that can see:
 /cvmfs/mu2e.opensciencegrid.org/
 ```
 
+The problem is that the header lines in the rootmap files are built differently using the two systems.
+We would like the rootcling build to create rootmap files with the header lines in the style written
+by the genreflex build.
+
 For historical reasons building dictionaries using rootcling is done using a cmake based build system
 while building dictionaries using genreflex is done using an scons based build system.   The source
 code is in a GitHub repository; it contains the files to control both the cmake builds and the scons
