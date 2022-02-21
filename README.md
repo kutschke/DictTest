@@ -13,7 +13,12 @@ setup -B root v6_24_06b -q+e20:+p399:+prof
 mkdir dicttest_profile
 cd dicttest_profile
 cmake ../DictTest  -DCMAKE_BUILD_TYPE=Release
-make -j 1 VERBOSE=1
+make -j 1 VERBOSE=1 >& ../log
+```
+
+Now look at the rootmap file to find the result:
+```
+grep header lib/libGeneral.rootmap
 ```
 
 ## Using genreflex via scons via muse
@@ -27,5 +32,10 @@ mkdir dicttest_profile
 cd dicttest_profile
 cmake ../DictTest  -DCMAKE_BUILD_TYPE=Release
 make -j 1 VERBOSE=1
+make -j 1 VERBOSE=1 >& ../log
 ```
 
+Now look at the rootmap file to find the result:
+```
+grep header build/sl7-prof-e20-p020/DictTest/lib/libdicttestGeneral_dict.rootmap
+```
