@@ -1,4 +1,4 @@
-#include "KinKal/General/ParticleState.hh"
+#include "DictTest/General/ParticleState.hh"
 
 KinKal::ParticleState::ParticleState(int a): _a(a){}
 

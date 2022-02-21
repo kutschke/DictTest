@@ -3,4 +3,4 @@
 // for objects written to art files
 //
 
-#include "KinKal/General/ParticleState.hh"
+#include "DictTest/General/ParticleState.hh"

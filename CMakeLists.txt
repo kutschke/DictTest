@@ -78,7 +78,7 @@ endif()
 
 
 # Set project name and version
-project (KinKal
+project (DictTest
     LANGUAGES CXX
     VERSION ${_build_ver_maj}.${_build_ver_min}.${_build_ver_patch}
     DESCRIPTION "Kinematic Kalman filter track fit code package"
@@ -142,7 +142,7 @@ install(TARGETS General
 # install headers
 # Globbing here is fine because it does not influence build behaviour
 install(DIRECTORY "${CMAKE_SOURCE_DIR}/"
-        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/KinKal
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/DictTest
         FILES_MATCHING PATTERN "*.hh"
         PATTERN ".git*" EXCLUDE
 )
