@@ -16,8 +16,8 @@ A rootmap file made by rootcling has header lines that look like:
 ```
 header ParticleState.hh
 ```
-A side effect of this difference is that in the genreflex build we need only add one element to
-ROOT_INCLUDE_PATH: the path to the root of the package.  On the other hand, in the root cling
+A side effect of this difference is that to use the genreflex build we need only add one element to
+ROOT_INCLUDE_PATH: the path to the root of the package.  On the other hand, to use the rootcling
 build we need to add the full path to every directory in the package that contains dictionary source.
 
 We would like to alter the rootmap files made by rootcling so that the header lines look like
@@ -31,6 +31,10 @@ for the other build system.
 
 Hopefully the solution will be as simple as adding an option to the rootcling command line or adding
 a line to the LinkDef.h file.
+
+The stretch goal is to learn how to build dictionaries so that ROOT_INCLUDE_PATH is not needed at run-time;
+that is to build a fully self contained dictionary that does not need to reference back to the header
+file source.
 
 ## Using rootcling via cmake
 
