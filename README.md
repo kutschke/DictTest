@@ -1,19 +1,36 @@
 # DictTest
 
 Example of making a root dictionary two different ways, one using rootcling and the other using genreflex.
-The examples are designed to be run on a machine that can see:
+The rootcling example is drawn from KinKal and the genreflex example is drawn from the Mu2e Offline scons
+based build system.  The examples are designed to be run on a machine that can see:
 ```
 /cvmfs/mu2e.opensciencegrid.org/
 ```
 
 The problem is that the header lines in the rootmap files are built differently using the two systems.
-We would like the rootcling build to create rootmap files with the header lines in the style written
-by the genreflex build.
+A rootmap file made by genreflex has header lines that look like:
+```
+header DictTest/General/ParticleState.hh
+```
+A rootmap file made by rootcling has header lines that look like:
+```
+header ParticleState.hh
+```
+A side effect of this difference is that in the genreflex build we need only add one element to
+ROOT_INCLUDE_PATH: the path to the root of the package.  On the other hand, in the root cling
+build we need to add the full path to every directory in the package that contains dictionary source.
+
+We would like to alter the rootmap files made by rootcling so that the header lines look like
+those made by genreflex.
 
 For historical reasons, building dictionaries using rootcling is done using a cmake based build system
-while building dictionaries using genreflex is done using an scons based build system.   The source
-code is in a GitHub repository; it contains the files to control both the cmake builds and the scons
-builds; each build system ignores the control files for the other build system.
+and a LinkDef.h file, while building dictionaries using genreflex is done using an scons based build system
+using the files classes.h and classses_def.xml. The source code in this example contains the files
+to control both the cmake builds and the scons builds; each build system ignores the control files
+for the other build system.
+
+Hopefully the solution will be as simple as adding an option to the rootcling command line or adding
+a line to the LinkDef.h file.
 
 ## Using rootcling via cmake
 
